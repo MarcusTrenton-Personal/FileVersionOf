@@ -1,0 +1,15 @@
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\bin\Release\net7.0\FileVersionOf.exe
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\bin\Release\net7.0\FileVersionOf.deps.json
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\bin\Release\net7.0\FileVersionOf.runtimeconfig.json
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\bin\Release\net7.0\FileVersionOf.dll
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\bin\Release\net7.0\FileVersionOf.pdb
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\obj\Release\net7.0\FileVersionOf.csproj.AssemblyReference.cache
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\obj\Release\net7.0\FileVersionOf.GeneratedMSBuildEditorConfig.editorconfig
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\obj\Release\net7.0\FileVersionOf.AssemblyInfoInputs.cache
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\obj\Release\net7.0\FileVersionOf.AssemblyInfo.cs
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\obj\Release\net7.0\FileVersionOf.csproj.CoreCompileInputs.cache
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\obj\Release\net7.0\FileVersionOf.dll
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\obj\Release\net7.0\refint\FileVersionOf.dll
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\obj\Release\net7.0\FileVersionOf.pdb
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\obj\Release\net7.0\FileVersionOf.genruntimeconfig.cache
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\obj\Release\net7.0\ref\FileVersionOf.dll

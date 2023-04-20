@@ -1,0 +1,5 @@
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\bin\Release\net7.0\publish\FileVersionOf.exe
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\bin\Release\net7.0\publish\FileVersionOf.dll
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\bin\Release\net7.0\publish\FileVersionOf.deps.json
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\bin\Release\net7.0\publish\FileVersionOf.runtimeconfig.json
+D:\BackThisUp\ProgrammingProjects\Workspace\Services\FileVersionOf\bin\Release\net7.0\publish\FileVersionOf.pdb
