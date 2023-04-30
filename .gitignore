@@ -1,0 +1,9 @@
+.vs/
+bin/
+obj/
+FileVersionOf.csproj.user
+*.user
+ExeCache/
+Zipped/
+*.csv#
+*.~lock.*
