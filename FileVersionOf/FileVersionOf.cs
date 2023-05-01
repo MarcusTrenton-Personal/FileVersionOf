@@ -19,7 +19,7 @@ using System.IO;
 
 namespace ExeVersion
 {
-    public class Program
+    public class FileVersionOf
     {
         public static void Main(string[] args)
         {
