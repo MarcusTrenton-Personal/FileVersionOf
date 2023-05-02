@@ -21,26 +21,43 @@ namespace ExeVersion
 {
     public class FileVersionOf
     {
+        //Following the conventions laid out at https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-
+        public const int ERROR_CODE_FILE_NOT_FOUND = 2;
+        public const int ERROR_INVALID_DATA = 13;
+
         public static void Main(string[] args)
         {
             if (args.Length == 0 || string.IsNullOrEmpty(args[0]))
             {
                 Console.Error.WriteLine("Missing parameter for exe path");
                 PrintUsage();
-                Environment.Exit(2);
+                Environment.Exit(ERROR_CODE_FILE_NOT_FOUND);
             }
 
             try
             {
                 FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(args[0]);
-                Console.Out.Write(versionInfo.ProductVersion);
+                bool foundFileVersion = versionInfo.ProductVersion != null;
+                if (foundFileVersion) 
+                {
+                    Console.Out.Write(versionInfo.ProductVersion);
+                }
+                else 
+                {
+                    ExitWithError("File " + args[0] + " does not have file version.", ERROR_INVALID_DATA);
+                }
             }
             catch(FileNotFoundException)
             {
-                Console.Error.WriteLine("File " + args[0] + " not found.");
-                PrintUsage();
-                Environment.Exit(2);
+                ExitWithError("File " + args[0] + " not found.", ERROR_CODE_FILE_NOT_FOUND);
             }
+        }
+
+        private static void ExitWithError(string message, int errorCode) 
+        {
+            Console.Error.WriteLine(message);
+            PrintUsage();
+            Environment.Exit(errorCode);
         }
 
         private static void PrintUsage()

@@ -14,20 +14,15 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.*/
 
 using System.Diagnostics;
-using System.Text;
+using ExeVersion;
 
 namespace FileVersionOfTests
 {
     [TestClass]
     public class Tests
     {
-        const int ERROR_CODE_FILE_NOT_FOUND = 2;
-
         private static Process RunFileVersionOfFromCommandLine(string args)
         {
-            StringBuilder outputText = new StringBuilder();
-            StringBuilder errorText = new StringBuilder();
-
             Process process = new();
             ProcessStartInfo startInfo = new()
             {
@@ -48,11 +43,11 @@ namespace FileVersionOfTests
         public void EmptyParametersFails()
         {
             Process process = RunFileVersionOfFromCommandLine(string.Empty);
-
-            Assert.AreEqual(ERROR_CODE_FILE_NOT_FOUND, process.ExitCode, "Wrong exit code");
             string outputText = process.StandardOutput.ReadToEnd();
-            Assert.AreEqual(0, outputText.Length, "Incorrectly had output text for an error case");
             string errorText = process.StandardError.ReadToEnd();
+
+            Assert.AreEqual(FileVersionOf.ERROR_CODE_FILE_NOT_FOUND, process.ExitCode, "Wrong exit code");
+            Assert.AreEqual(0, outputText.Length, "Incorrectly had output text for an error case");
             Assert.IsTrue(errorText.Length > 0, "Expected error text not found");
         }
 
@@ -60,11 +55,25 @@ namespace FileVersionOfTests
         public void FileNotFoundFails()
         {
             Process process = RunFileVersionOfFromCommandLine("DoesNotExist.exe");
+            string outputText = process.StandardOutput.ReadToEnd();
+            string errorText = process.StandardError.ReadToEnd();
 
-            Assert.AreEqual(ERROR_CODE_FILE_NOT_FOUND, process.ExitCode, "Wrong exit code");
+            Assert.AreEqual(FileVersionOf.ERROR_CODE_FILE_NOT_FOUND, process.ExitCode, "Wrong exit code");
+            Assert.AreEqual(0, outputText.Length, "Incorrectly had output text for an error case");
+            Assert.IsTrue(errorText.Length > 0, "Expected error text not found");
         }
 
-        //FileIsNotCorrectType
+        [TestMethod]
+        public void FileIsNotCorrectType()
+        {
+            Process process = RunFileVersionOfFromCommandLine("../../../TestInputs/WrongFileType.txt");
+            string outputText = process.StandardOutput.ReadToEnd();
+            string errorText = process.StandardError.ReadToEnd();
+
+            Assert.AreEqual(FileVersionOf.ERROR_INVALID_DATA, process.ExitCode, "Wrong exit code");
+            Assert.AreEqual(0, outputText.Length, "Incorrectly had output text for an error case");
+            Assert.IsTrue(errorText.Length > 0, "Expected error text not found");
+        }
 
         //Read Exe Versions
         //Read DLL Version
