@@ -75,7 +75,22 @@ namespace FileVersionOfTests
             Assert.IsTrue(errorText.Length > 0, "Expected error text not found");
         }
 
-        //Read Exe Versions
-        //Read DLL Version
+        [DataTestMethod]
+        [DataRow("TestAllZeros.exe", "0.0.0.0")]
+        [DataRow("TestBigNumbers.exe", "65000.65000.65000.65000")]
+        [DataRow("TestDefaultFileVersion.exe", "1.0.0.0")]
+        [DataRow("TestFullFileVersion.exe", "1.23.3120.216")]
+        [DataRow("TestDefaultFileVersion.dll", "1.0.0.0")]
+        public void ReadFileVersion(string fileName, string expectedResult)
+        {
+            string path = Path.Combine("../../../TestInputs/", fileName);
+            Process process = RunFileVersionOfFromCommandLine(path);
+            string outputText = process.StandardOutput.ReadToEnd();
+            string errorText = process.StandardError.ReadToEnd();
+
+            Assert.AreEqual(FileVersionOf.ERROR_CODE_SUCCESS, process.ExitCode, "Wrong exit code");
+            Assert.AreEqual(expectedResult, outputText, "Incorrectly had output text for an error case");
+            Assert.AreEqual(0, errorText.Length, "Incorrectly found error text");
+        }
     }
 }

@@ -22,6 +22,7 @@ namespace ExeVersion
     public class FileVersionOf
     {
         //Following the conventions laid out at https://learn.microsoft.com/en-us/windows/win32/debug/system-error-codes--0-499-
+        public const int ERROR_CODE_SUCCESS = 0;
         public const int ERROR_CODE_FILE_NOT_FOUND = 2;
         public const int ERROR_INVALID_DATA = 13;
 
@@ -37,10 +38,10 @@ namespace ExeVersion
             try
             {
                 FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(args[0]);
-                bool foundFileVersion = versionInfo.ProductVersion != null;
+                bool foundFileVersion = versionInfo.FileVersion != null;
                 if (foundFileVersion) 
                 {
-                    Console.Out.Write(versionInfo.ProductVersion);
+                    Console.Out.Write(versionInfo.FileVersion);
                 }
                 else 
                 {
