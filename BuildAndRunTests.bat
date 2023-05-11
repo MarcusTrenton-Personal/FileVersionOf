@@ -1,6 +1,6 @@
 @echo off
 
-REM msbuild ServicesTests\ServicesTests.csproj -verbosity:quiet
-REM if NOT %errorlevel% == 0 exit /B %errorlevel%
-REM vstest.console.exe ServicesTests\bin\Debug\netcoreapp3.1\ServicesTests.dll /Settings:TestUtils\FullTestCleanup.runsettings
-REM if NOT %errorlevel% == 0 exit /B %errorlevel%
+msbuild FileVersionOfTests\FileVersionOfTests.csproj -verbosity:quiet
+if NOT %errorlevel% == 0 exit /B %errorlevel%
+vstest.console.exe FileVersionOfTests\bin\Debug\net7.0\FileVersionOfTests.dll /Settings:FileVersionOfTests\FullTestCleanup.runsettings
+if NOT %errorlevel% == 0 exit /B %errorlevel%
