@@ -10,9 +10,11 @@
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>$(ProjectDir)..\MarcusTrentonPersonalSoftware.pub</AssemblyOriginatorKeyFile>
     <DelaySign>True</DelaySign>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Title>FileVersionOf</Title>
     <RepositoryType>Git</RepositoryType>
-    <RepositoryUrl>https://github.com/MarcusTrenton-Personal/Services.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/MarcusTrenton-Personal/FileVersionOf.git</RepositoryUrl>
 
     <CurrentYear>$([System.DateTime]::UtcNow.Year)</CurrentYear>
     <!-- If somehow this software is in use in 2085 and hit the uint16 limit, just increase the anchor year beyond 2020.-->
@@ -29,7 +31,7 @@
 
   <Target Name="SignExe" AfterTargets="Publish">
     <Message Text="Signing exe" Importance="high" />
-    <Exec Command="signtool sign /f %SigningKey% /p %SigningKeyPassword% /fd SHA1 /du https://github.com/MarcusTrenton-Personal/Services /d Services &quot;$(PublishDir)$(TargetName).exe&quot;" ConsoleToMsBuild="true" />
+    <Exec Command="signtool sign /f %SigningKey% /p %SigningKeyPassword% /fd SHA1 /du https://github.com/MarcusTrenton-Personal/FileVersionOf /d FileVersionOf &quot;$(PublishDir)$(TargetName).exe&quot;" ConsoleToMsBuild="true" />
   </Target>
 
 </Project>
