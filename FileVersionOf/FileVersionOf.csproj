@@ -15,6 +15,8 @@
     <Title>FileVersionOf</Title>
     <RepositoryType>Git</RepositoryType>
     <RepositoryUrl>https://github.com/MarcusTrenton-Personal/FileVersionOf.git</RepositoryUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <IncludeContentInPack>true</IncludeContentInPack>
 
     <CurrentYear>$([System.DateTime]::UtcNow.Year)</CurrentYear>
     <!-- If somehow this software is in use in 2085 and hit the uint16 limit, just increase the anchor year beyond 2020.-->
@@ -28,6 +30,10 @@
     <VersionPrefix>1.23.$(BuildDateNumber).$(MinutesSinceMidnight)</VersionPrefix>
     <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <Content Include="..\License.md" Link="License.md" Pack="true" PackagePath="License.md" />
+  </ItemGroup>
 
   <Target Name="SignExe" AfterTargets="Publish">
     <Message Text="Signing exe" Importance="high" />
